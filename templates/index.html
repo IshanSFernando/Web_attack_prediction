@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+          body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Helvetica';
+	background: black;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 1.4px;
+	font-size: 30px;
+}
+
+input {
+	min-width: 150px;
+  font-size: 30px;
+  font-family: 'Helvetica';
+}
+
+.grid {
+	width: 300px;
+	border: 1px solid #2d2d2d;
+	display: grid;
+	justify-content: center;
+	margin: 20px auto;
+}
+
+.box {
+	color: #fff;
+	background: #2d2d2d;
+	padding: 12px;
+	display: inline-block;
+
+}
+button {
+	min-width: 150px;
+  color: #fff;
+	background: #2d2d2d;
+	padding: 12px;
+	display: inline-block;
+  font-size: 30px;
+  font-family: 'Helvetica';
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+      </style>
+    <meta charset="UTF-8">
+    <title>🛸 Web attack prediction 👽</title>
+  </head>
+
+  <body>
+    <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li style="float:right"><a href="about.html">Path to achieve</a></li>
+      </ul>
+    <div class="grid">
+
+      <div class="box">
+
+        
+
+        <form action="{{ url_for('predict')}}" method="post">
+ 
+                <fieldset>
+                    <legend>Input values:</legend>
+                destination port:
+                <input type="number" name="dst_port" required>
+                <br>
+                <br>protocol:
+                <input type="number" name="protocol"  required>
+                <br>
+                <br>minimum forward packet length:
+                <input type="number" name="fwd_pkt_len_min"  required>
+                <br>
+                <br>minimum backward packet length:
+                <input type="number" name="bwd_pkt_len_min "  required>
+                <br>
+                <br>standard backward packet length:
+                <input type="number" name="bwd_pkt_len_std"  required>
+                <br>
+                <br>minimum packet length:
+                <input type="number" name="pkt_len_min" required>
+                <br>
+                <br>pushed flag count:
+                <input type="number" name="psh_flag_cnt" required>
+                <br>
+                <br>down up ratio:
+                <input type="number" name="down_up_ratio" required>
+                <br>
+                <br>initial forward win. bytes:
+                <input type="number" name="init_fwd_win_byts" required>
+                <br>
+                <br>nitial backward win. bytes:
+                <input type="number" name="init_bwd_win_byts" required>
+                <br>
+                <br>minimum forward segment size:
+                <input type="number" name="fwd_seg_size_min" required>
+                <br>
+                <br>
+                <button type="submit" class="btn">Predict attack</button>
+                </fieldset>
+                
+            </form>
+
+        <p>{{ prediction_text }}</p>
+
+      </div>
+
+    </div>
+  </body>
+</html>
