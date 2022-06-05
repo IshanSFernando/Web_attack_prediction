@@ -1,77 +1,144 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            body {
-	width: 100%;
-	height: 100%;
-	font-family: 'Helvetica';
-	background: black;
-	color: #fff;
-	text-align: center;
-	letter-spacing: 1.4px;
-	font-size: 30px;
-}
-            ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-li:last-child {
-  border-right: none;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #111;
-}
-
-.active {
-  background-color: #04AA6D;
-}
-        </style>
-    </head>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 <body>
-    <ul>
-        <li><a class="active" href="index.html">Home</a></li>
-        <li style="float:right"><a href="about.html">About</a></li>
-      </ul>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <li><a class="active text-white" href="in.html"><h3>Home</h3></a>
+      </li>
+     
+     
+    </ul>
+  </nav>
+    
 
-<h3>Find best model among various models</h3>
+<div class="text-body" style="background-color:rgb(247, 250, 252);">
 
 
-<img src="{{ image_1 }}" alt="image" >
-<br>
-<img src="{{ image_2 }}" alt="image" >
-<br>
-<img src="{{ image_3 }}" alt="image" >
-<br>
-<img src="{{ image_4 }}" alt="image" >
-<br>
-<img src="{{ image_5 }}" alt="image" >
-<br>
-<img src="{{ image_6 }}" alt="image" >
-<br>
-<img src="{{ image_7 }}" alt="image" >
-<br>
-<img src="{{ image_8 }}" alt="image" >
-<br>
-<img src="{{ image_9 }}" alt="image" >
-<br>
+<div class="container-fluid">
+  
+  <div class="row">
+    <div class="col-sm-2" style="background-color:rgb(87 195 228);"></div> 
+<div class="col-sm-8 text " style="background-color:rgb(87 195 228);">
+  <br>
+  <br>
+  <h1 class="text-center">Experimental research which was done to find best model among various models</h1>
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">Data Preprocessing and feature selection</h3>
+      <p class="text-center">Those are the mostly correlated features with the attack label</p>
+      <br>
+      <img src="{{ image_1 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">Support Vector Machine</h3>
+      <p class="text-center">Classification report of trained SVM model</p>
+      <br>
+      <img src="{{ image_2 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">K Nearest Neighbour</h3>
+      <p class="text-center">Classification report of trained KNN model</p>
+      <br>
+      <img src="{{ image_3 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">K Medoids</h3>
+      <p class="text-center">Clustering graphs of K Medoids methods using Manhattan, Euclidian & cosine algorithms</p>
+      <br>
+      <img src="{{ image_4 }}" alt="image" class="img-fluid rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">Principal Component Analysis</h3>
+      <p class="text-center">Change the features into 2 dimensions using PCA</p>
+      <br>
+      <img src="{{ image_5 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">K Means</h3>
+      <p class="text-center">Clustering graph of K Means Clustering Method</p>
+      <br>
+      <img src="{{ image_6 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">Elbow method</h3>
+      <p class="text-center">Find suitable number of labels for clustering using elbow method</p>
+      <br>
+      <img src="{{ image_7 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">K means Clustering After Elbow method</h3>
+      <p class="text-center">Clustering graph of K Means Clustering Method after finding ideal number of features</p>
+      <br>
+      <img src="{{ image_8 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(255 255 255)">
+    <div class="container">
+      <h3 class="text-center">Semi Supervised Learning</h3>
+      <p class="text-center">Accuracy achieved by semi supervised learning algorithm</p>
+      <br>
+      <img src="{{ image_9 }}" alt="image" class="rounded mx-auto d-block" >
+    </div>
+  </div>
+  
+  <br>
+  <br>
+</div> 
+<div class="col-sm-2" style="background-color:rgb(87 195 228);"></div>  
+
+  </div>
+</div>
+</div>
 </body>
 </html>

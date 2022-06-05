@@ -1,5 +1,6 @@
 import numpy as np
 from flask import Flask, request, render_template
+from lockfile import LockFile
 import pickle
 
 import os
@@ -14,11 +15,72 @@ model = pickle.load(open(r"finalized_model.pkl", "rb"))
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    logo = os.path.join(app.config['UPLOAD_FOLDER'], 'Nicol logo 1.png')
+    lock = LockFile("visitors.txt")
+    pred="enter your inputs"
+    with lock:
+        with open("visitors.txt", "r+") as f:
+            fileContent = f.read()
 
-@app.route("/index.html")
+            if fileContent == "":
+                count = 1
+            else:
+                count = int(fileContent) + 1
+            
+            f.seek(0)
+            f.write(str(count))
+            f.truncate()
+    lock = LockFile("predictions.txt")
+    with lock:
+        with open("predictions.txt", "r+") as g:
+            
+
+            count_1=g.read()
+            g.seek(0)
+            g.write(str(count_1))
+            g.truncate()
+    return render_template("in.html",
+    prediction_text="{}".format(pred),
+    visitor_count="number of visitors: {}".format(str(count)),
+    number_of_predictions="Number of predictions: {}".format(str(count_1)),
+    logo_=logo
+    )
+
+
+
+
+@app.route("/in.html")
 def index():
-    return render_template("index.html")    
+    logo = os.path.join(app.config['UPLOAD_FOLDER'], 'Nicol logo 1.png')
+    lock = LockFile("visitors.txt")
+    pred="enter your inputs"
+    with lock:
+        with open("visitors.txt", "r+") as f:
+            fileContent = f.read()
+
+            if fileContent == "":
+                count = 1
+            else:
+                count = int(fileContent) + 1
+            
+            f.seek(0)
+            f.write(str(count))
+            f.truncate()
+    lock = LockFile("predictions.txt")
+    with lock:
+        with open("predictions.txt", "r+") as g:
+            
+
+            count_1=g.read()
+            g.seek(0)
+            g.write(str(count_1))
+            g.truncate()
+    return render_template("in.html",
+    prediction_text="{}".format(pred),
+    visitor_count="number of visitors: {}".format(str(count)),
+    number_of_predictions="Number of predictions: {}".format(str(count_1)),
+    logo_=logo
+    )    
 
 @app.route("/about.html")
 def about():
@@ -35,7 +97,7 @@ def about():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-
+    logo = os.path.join(app.config['UPLOAD_FOLDER'], 'Nicol logo 1.png')
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
@@ -44,8 +106,34 @@ def predict():
 
     countries = ["Benign", "Brute Force -Web", "Brute Force -XSS", "SQL Injection"]
 
+    lock = LockFile("predictions.txt")
+    with lock:
+        with open("predictions.txt", "r+") as g:
+            fileContent = g.read()
+
+            if fileContent == "":
+                count_1 = 1
+            else:
+                count_1 = int(fileContent) + 1
+            
+            g.seek(0)
+            g.write(str(count_1))
+            g.truncate()
+    lock = LockFile("visitors.txt")
+    with lock:
+        with open("visitors.txt", "r+") as f: 
+
+            count=f.read()
+            f.seek(0)
+            f.write(str(count))
+            f.truncate()
+
     return render_template(
-        "index.html", prediction_text="Likely attack: {}".format(countries[output])
+        "in.html", 
+        prediction_text="Likely attack: {}".format(countries[output]),
+        visitor_count="number of visitors: {}".format(str(count)),
+        number_of_predictions="Number of predictions: {}".format(str(count_1)),
+        logo_=logo
     )
 
 

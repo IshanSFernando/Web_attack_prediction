@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  
+  <div class="row">
+    <div class="col-sm-2" style="background-color:rgb(255, 255, 255);">
+        <div class="container p-4 my-3" style="background-color:rgb(255, 255, 255);"><h2><img src="{{ logo_ }}" alt="image" ></h2></div>
+        <nav class="navbar justify-content-center" style="background-color:rgb(255, 255, 255);">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-body" href="#"><h4>Home</h4></a>
+          </li>
+          <li class="nav-item text-body">
+            <a href="#demo" class="nav-link text-body" data-toggle="collapse"><h4>Benign</h4></a><div id="demo" class="collapse">
+              This means one-fourth of all records compromised are the result of negligence. Unintended disclosure could come in the form of posting information on the company's public-facing website or sending information to the wrong party via email, fax or mail
+              </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-body" href="#demo1" data-toggle="collapse"><h4>Brute Force-Web</h4></a><div id="demo1" class="collapse">
+              Brute-force attacks are often used for attacking authentication and discovering hidden content/pages within a web application. These attacks are usually sent via GET and POST requests to the server. In regards to authentication, brute force attacks are often mounted when an account lockout policy is not in place.
+              </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-body" href="#demo2" data-toggle="collapse"><h4>Brute Force-XSS</h4></a><div id="demo2" class="collapse">
+              Cross-site scripting (XSS) is a code injection security attack targeting web applications that delivers malicious, client-side scripts to a user’s web browser for execution. Targets are not attacked directly, rather vulnerable websites and web applications are used to carry out cross-site scripting attacks when users interact with these sites/applications.
+              </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-body" href="#demo3" data-toggle="collapse"><h4>SQL Injection</h4></a><div id="demo3" class="collapse">
+              SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. It generally allows an attacker to view data that they are not normally able to retrieve. This might include data belonging to other users, or any other data that the application itself is able to access. In many cases, an attacker can modify or delete this data, causing persistent changes to the application's content or behavior.
+              </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-body" href="about.html"><h4>About</h4></a>
+          </li>
+        </ul>
+      </nav>
+      
+    
+      <br>
+      <br>
+      <br>
+      
+    
+    
+    </div>
+    <div class="col-sm-7" style="background-color:rgb(87 195 228);">
+
+
+        
+
+            <div class="container p-4 my-3  text-body" style="background-color:rgb(87 195 228);">
+                <h2>Attack nature</h2>
+                <br>
+                <h4>Please enter following details of your attack in the form</h4>
+                <form action="{{ url_for('predict')}}" method="post" class="was-validated">
+
+                  <div class="row">
+
+                  <div class="col">
+
+                  <div class="form-group">
+                    <label for="dst_port">Destination Port:</label>
+                    <input type="number" class="form-control" id="dst_port" placeholder="Enter Destination Port" name="dst_port" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="protocol">protocol:</label>
+                    <input type="number" class="form-control" id="protocol" placeholder="Enter protocol" name="protocol" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="fwd_pkt_len_min">minimum forward packet length:</label>
+                    <input type="number" class="form-control" id="fwd_pkt_len_min" placeholder="Enter minimum forward packet length" name="fwd_pkt_len_min" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="bwd_pkt_len_min">minimum backward packet length:</label>
+                    <input type="number" class="form-control" id="bwd_pkt_len_min" placeholder="Enter minimum backward packet length" name="bwd_pkt_len_min" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="bwd_pkt_len_std">standard backward packet length:</label>
+                    <input type="number" class="form-control" id="bwd_pkt_len_std" placeholder="Enter standard backward packet length" name="bwd_pkt_len_std" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="pkt_len_min">minimum packet length:</label>
+                    <input type="number" class="form-control" id="pkt_len_min" placeholder="Enter minimum packet length" name="pkt_len_min" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  </div>
+
+                  <div class="col">
+                  <div class="form-group">
+                    <label for="psh_flag_cnt">pushed flag count:</label>
+                    <input type="number" class="form-control" id="psh_flag_cnt" placeholder="Enter pushed flag count" name="psh_flag_cnt" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="down_up_ratio">down up ratio:</label>
+                    <input type="number" class="form-control" id="down_up_ratio" placeholder="Enter down up ratio" name="down_up_ratio" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="init_fwd_win_byts">initial forward windows bytes:</label>
+                    <input type="number" class="form-control" id="init_fwd_win_byts" placeholder="Enter initial forward win. bytes" name="init_fwd_win_byts" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="init_bwd_win_byts">initial backward windows bytes:</label>
+                    <input type="number" class="form-control" id="init_bwd_win_byts" placeholder="Enter initial backward win. bytes" name="init_bwd_win_byts" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="fwd_seg_size_min">minimum forward segment size:</label>
+                    <input type="number" class="form-control" id="fwd_seg_size_min" placeholder="Enter minimum forward segment size" name="fwd_seg_size_min" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  
+                  <div class="form-group">
+        
+                  <button type="submit" id="b" class="mt-4 btn btn-primary text-body" style="background-color:rgb(218, 226, 233);">Predict the results</button></div>
+                </div>
+              </div>
+                </form>
+              </div>
+
+          </div>
+
+          <div class="col-sm-3 text-body" style="background-color:rgb(87 195 228);"><div class="container">
+
+            <div class="mt-5 card text-body" style="height: 200px" >
+              <div class="card-body mx-auto" style="background-color:rgb(255, 255, 255); font-size: larger ;">{{ prediction_text }}</div>
+            </div>
+            <div class="mt-5 card text-body" style="background-color:rgb(87 195 228); font-size: larger ;">
+              <div class="card-body border border-white">{{ visitor_count }}</div>
+            </div>
+            
+            <div class="mt-5 card text-body" style="background-color:rgb(87 195 228); font-size: larger ;">
+              <div class="card-body border border-white">{{ number_of_predictions }}</div>
+            </div>        
+                  
+                  </div></div>
+</div>
+
+  </div>
+  
+</div>
+
+</body>
+</html>
